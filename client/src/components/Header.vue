@@ -15,6 +15,11 @@
 
 <v-spacer></v-spacer>
       <v-btn class="cyan" :to="{
+          name: 'login'
+        }">
+        Login
+      </v-btn>
+      <v-btn class="cyan" :to="{
           name: 'register'
         }">
         Sing Up
