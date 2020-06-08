@@ -1,25 +1,22 @@
 <template>
+<div id="app">
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <v-spacer></v-spacer>
-    </v-app-bar>
-
-    <v-content>
+    <page-header />
+    <main>
+    <v-content fluent>
 <router-view></router-view>
     </v-content>
+    </main>
   </v-app>
+</div>
 </template>
 
 <script>
+import PageHeader from '@/components/Header.vue'
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  }),
-};
+  components: {
+    PageHeader
+  }
+}
 </script>
