@@ -8,5 +8,8 @@ module.exports = {
 			dialect: 'mysql',
 			host: process.env.HOST || '127.0.0.1',
         }
-    }
+    },
+	authentication: {
+	  jwtSecret: process.env.JWT_SECRET || 'secret'
+	}
 }
