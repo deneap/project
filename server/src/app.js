@@ -11,6 +11,10 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
+
+
+
+console.log('HI');
 require('./routes')(app)
 sequelize.sync()
   .then(() => {
