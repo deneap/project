@@ -13,6 +13,12 @@
         }">
         Browse
       </v-btn>
+            <v-btn
+      class="cyan" :to="{
+          name: 'songs-create'
+        }">
+        Create Songs
+      </v-btn>
 
 <v-spacer></v-spacer>
 
