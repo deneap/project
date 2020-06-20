@@ -1,9 +1,8 @@
 const {Song} = require('../models')
-
 module.exports = {
   async index (req, res) {
     try {
-      const song = await Song.findAll({
+      const songs = await Song.findAll({
         limit: 10
       })
       res.send(songs)

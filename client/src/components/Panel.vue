@@ -7,9 +7,14 @@
         <v-toolbar flat dense class="cyan" dark>
         <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
-        <slot>
+        <div class="pl-4 pr-4 pt-2 bp-2">
+        <slot name="hello">
           No slot conect defined.
         </slot>
+             <slot name="bye">
+          No slot conect defined.
+        </slot>
+        </div>
         </v-col>
 
         
