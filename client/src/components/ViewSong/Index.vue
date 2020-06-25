@@ -1,9 +1,8 @@
 <template>
   <v-layout>
-  <!-- <v-form fluid style="margin: 1px; padding: 1px; align: middle; width: 100%"> -->
-       <!-- <v-container>  -->
-           <v-flex xs3>
-        <v-toolbar flat dense class="cyan" dark>
+           <v-flex>
+            <song-metadata :song="song" />
+        <!-- <v-toolbar flat dense class="cyan" dark>
         <v-toolbar-title>Song Metadate</v-toolbar-title>
         </v-toolbar>
 <div class="song-title">
@@ -44,11 +43,11 @@
           class="cyan"
           @click="unsetAsBookmark">
           Unset As Bookmark
-        </v-btn>
+        </v-btn> -->
       </v-flex>
 
       <v-flex xs3>
-                <v-toolbar flat dense class="cyan" dark>
+                <!-- <v-toolbar flat dense class="cyan" dark>
         <v-toolbar-title>Album</v-toolbar-title>
         </v-toolbar>
         <img class="album-image" :src="song.albumImageUrl" />
@@ -64,7 +63,7 @@
         </v-toolbar>
         <div class="song-title">
         {{song.tab}}
-       </div> 
+       </div>  -->
         </v-flex>
     <!-- </v-container> -->
     
@@ -75,16 +74,16 @@
 </template>
 
 <script>
-// import {mapState} from 'vuex'
-// import Lyrics from './Lyrics'
-// import Tab from './Tab'
-// import SongMetadata from './SongMetadata.vue'
-// import YouTube from './YouTube'
+import SongMetadata from './SongMetadata.vue'
 import SongsServices from '@/services/SongsServices.js'
-// import SongHistoryService from '@/services/SongHistoryService'
+// import Panel from '@/components/Panel.vue'
 
-export default {
-  data () {
+ export default {
+   components: {
+      // Panel,
+      'song-metadata': SongMetadata
+    },
+ data () {
     return {
       song: null
     }
@@ -93,29 +92,7 @@ export default {
     const songId = this.$store.state.route.params.songId
     this.song = (await SongsServices.show(songId)).data
     },
-  // computed: {
-  //   ...mapState([
-  //     'isUserLoggedIn',
-  //     'user',
-  //     'route'
-  //   ])
-  // },
-  // async mounted () {
-  //   const songId = this.route.params.songId
-  //   this.song = (await SongsService.show(songId)).data
-
-  //   if (this.isUserLoggedIn) {
-  //     SongHistoryService.post({
-  //       songId: songId
-  //     })
-  //   }
-  // },
-  // components: {
-  //   SongMetadata
-  //   // YouTube,
-  //   // Lyrics,
-  //   // Tab
-  // }
+    
 }
 </script>
 

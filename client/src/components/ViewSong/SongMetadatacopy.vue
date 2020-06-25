@@ -1,8 +1,7 @@
 <template>
   <panel title="Song Metadata">
-    <div slot='hello'>
     <v-layout>
-      <v-flex xs8>
+      <v-flex xs6>
         <div class="song-title">
           {{song.title}}
         </div>
@@ -49,29 +48,66 @@
         <br>
         {{song.album}}
       </v-flex>
- </v-layout>
-      <v-flex xs6 class="ml-2">
-  <panel title="Tab">
-    <textarea
-      readonly
-      v-model="song.tab"
-    ></textarea>
-  </panel>
-      </v-flex>
-     
-    </div>
+    </v-layout>
   </panel>
 </template>
 
 <script>
-import Panel from '@/components/Panel.vue'
+import {mapState} from 'vuex'
+import BookmarksService from '@/services/BookmarksService'
+
 export default {
   props: [
     'song'
- ],
- components: {
-   Panel
- }
+  ],
+  data () {
+    return {
+      bookmark: null
+    }
+  },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
+  },
+  watch: {
+    async song () {
+      if (!this.isUserLoggedIn) {
+        return
+      }
+
+      try {
+        const bookmarks = (await BookmarksService.index({
+          songId: this.song.id
+        })).data
+        if (bookmarks.length) {
+          this.bookmark = bookmarks[0]
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  },
+  methods: {
+    async setAsBookmark () {
+      try {
+        this.bookmark = (await BookmarksService.post({
+          songId: this.song.id
+        })).data
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async unsetAsBookmark () {
+      try {
+        await BookmarksService.delete(this.bookmark.id)
+        this.bookmark = null
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
 }
 </script>
 
