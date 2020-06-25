@@ -1,11 +1,17 @@
 <template>
-  <panel title="YouTube Video">
+ <v-flex xs12>
+          <v-col>
+          <v-toolbar flat dense class="cyan" dark>
+        <v-toolbar-title>YouTube</v-toolbar-title>
+        </v-toolbar>   
     <youtube
       :video-id="youtubeId"
-      :player-width="800"
+      :player-width="650"
       :player-height="330">
     </youtube>
-  </panel>
+    </v-col>
+ </v-flex>
+
 </template>
 
 <script>

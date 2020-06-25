@@ -1,8 +1,11 @@
 <template>
-  <panel title="Song Metadata">
-    <div slot='hello'>
-    <v-layout>
-      <v-flex xs8>
+  <v-layout>
+
+        <v-flex xs8>
+          <v-col>
+          <v-toolbar flat dense class="cyan" dark>
+        <v-toolbar-title>Song Metadata</v-toolbar-title>
+        </v-toolbar>
         <div class="song-title">
           {{song.title}}
         </div>
@@ -42,36 +45,42 @@
           @click="unsetAsBookmark">
           Unset As Bookmark
         </v-btn>
+        </v-col>
       </v-flex>
-
-      <v-flex xs6>
+        <v-flex xs6>
+          <v-col>
+                    <v-toolbar flat dense class="cyan" dark>
+        <v-toolbar-title>Album</v-toolbar-title>
+        </v-toolbar>
         <img class="album-image" :src="song.albumImageUrl" />
         <br>
         {{song.album}}
+        </v-col>
       </v-flex>
- </v-layout>
-      <v-flex xs6 class="ml-2">
-  <panel title="Tab">
+
+        <v-flex xs8 class="ml-2">
+         <v-col>
+        <v-toolbar flat dense class="cyan" dark>
+        <v-toolbar-title>Tab</v-toolbar-title>
+        </v-toolbar>
     <textarea
       readonly
       v-model="song.tab"
     ></textarea>
-  </panel>
-      </v-flex>
-     
-    </div>
-  </panel>
+           </v-col>
+        </v-flex>
+  </v-layout>
 </template>
 
 <script>
-import Panel from '@/components/Panel.vue'
+// import Panel from '@/components/Panel.vue'
 export default {
   props: [
     'song'
- ],
- components: {
-   Panel
- }
+ ]
+//  components: {
+//    Panel
+//  }
 }
 </script>
 
