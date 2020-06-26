@@ -2,10 +2,12 @@
   <v-layout>
 
         <v-flex xs8>
-          <v-col>
+          
           <v-toolbar flat dense class="cyan" dark>
         <v-toolbar-title>Song Metadata</v-toolbar-title>
         </v-toolbar>
+        <v-form class="justify-center" fluid style="margin: 1px; padding: 50px; align: middle; width: 100%">
+        <div>
         <div class="song-title">
           {{song.title}}
         </div>
@@ -15,6 +17,7 @@
         <div class="song-genre">
           {{song.genre}}
         </div>
+         </div>
 
         <v-btn
           dark
@@ -45,30 +48,21 @@
           @click="unsetAsBookmark">
           Unset As Bookmark
         </v-btn>
-        </v-col>
+        </v-form>
       </v-flex>
-        <v-flex xs6>
-          <v-col>
+        <v-flex justify-center xs6  class="mr-4">
+          
                     <v-toolbar flat dense class="cyan" dark>
-        <v-toolbar-title>Album</v-toolbar-title>
+        <v-toolbar-title></v-toolbar-title>
         </v-toolbar>
+        <v-form class="justify-center" fluid style="margin: 5px; padding: 20px; align: middle; width: 100%">
         <img class="album-image" :src="song.albumImageUrl" />
         <br>
         {{song.album}}
-        </v-col>
+        </v-form>
       </v-flex>
 
-        <v-flex xs8 class="ml-2">
-         <v-col>
-        <v-toolbar flat dense class="cyan" dark>
-        <v-toolbar-title>Tab</v-toolbar-title>
-        </v-toolbar>
-    <textarea
-      readonly
-      v-model="song.tab"
-    ></textarea>
-           </v-col>
-        </v-flex>
+
   </v-layout>
 </template>
 
