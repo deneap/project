@@ -22,18 +22,16 @@
         <v-btn
           dark
           class="cyan"
-          :to="{
+          @click="navigateTo({
             name: 'song-edit',
-            params () {
-              return {
+            params: {
                 songId: song.id
-              }
             }
-          }">
+          })">
           Edit
         </v-btn>
 
-        <v-btn
+        <!-- <v-btn
           v-if="isUserLoggedIn && !bookmark"
           dark
           class="cyan"
@@ -47,7 +45,7 @@
           class="cyan"
           @click="unsetAsBookmark">
           Unset As Bookmark
-        </v-btn>
+        </v-btn> -->
         </v-form>
       </v-flex>
         <v-flex justify-center xs6  class="mr-4">
@@ -71,10 +69,12 @@
 export default {
   props: [
     'song'
- ]
-//  components: {
-//    Panel
-//  }
+ ],
+ methods: {
+   navigateTo (route) {
+     this.$router.push(route)
+   }
+ }
 }
 </script>
 
