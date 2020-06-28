@@ -15,8 +15,6 @@
 <script>
 import SongMetadata from './SongMetadata.vue'
 import SongsServices from '@/services/SongsServices.js'
-import Panel from '@/components/Panel.vue'
-
  export default {
  data () {
     return {
@@ -28,7 +26,6 @@ import Panel from '@/components/Panel.vue'
     this.song = (await SongsServices.show(songId)).data
     },
     componets: {
-    Panel,
     SongMetadata
     }
 }

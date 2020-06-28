@@ -32,11 +32,9 @@ import Lyrics from './Lyrics.vue'
 import YouTube from './YouTube.vue'
 import SongMetadata from './SongMetadata.vue'
 import SongsServices from '@/services/SongsServices.js'
-// import Panel from '@/components/Panel.vue'
 
  export default {
    components: {
-      // Panel,
       'song-metadata': SongMetadata,
       YouTube,
       Lyrics,
