@@ -51,11 +51,7 @@
 
 <script>
 import SongsServices from '@/services/SongsServices.js'
-import Panel from '@/components/Panel.vue'
 export default {
-  components: {
-    Panel
-  },
   data () {
     return {
       songs: null,
