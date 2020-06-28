@@ -50,15 +50,23 @@
 </template>
 
 <script>
-import SongsServices from '@/services/SongsServices.js'
+import SongsService from '@/services/SongsServices.js'
 export default {
   data () {
     return {
       songs: null,
     }
   },
-  async created () {
-    this.songs = (await SongsServices.listSongs()).data;
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async handler (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
+    }
+  // },
+  // async created () {
+  //   this.songs = (await SongsServices.listSongs()).data;
   }
 }
 </script>
