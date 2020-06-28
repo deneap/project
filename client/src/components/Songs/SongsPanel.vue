@@ -57,10 +57,17 @@ export default {
       songs: null,
     }
   },
-  async created () {
-    this.songs = (await SongsServices.listSongs()).data;
+  watch: {
+    '$route.query.search': {
+      immediate: true,
+      async created (value) {
+        this.songs = (await SongsService.index(value)).data
+      }
+    }
   }
 }
+  // async created () {
+  //   this.songs = (await SongsServices.listSongs()).data;
 </script>
 
 <style scoped>

@@ -5,7 +5,7 @@
             <!-- <div slot="hello"> -->
     <v-text-field
       label="Search by song title, artist, album, or genre"
-
+      v-model="search"
     ></v-text-field>
             <!-- </div> -->
     </panel>
@@ -25,7 +25,8 @@
 //     }
 //   },
 //   watch: {
-//     search: _.debounce(async function (value) {
+//     //  search: _.debounce(async function (value) {
+//    search (value) {
 //       const route = {
 //         name: 'songs'
 //       }
@@ -35,7 +36,8 @@
 //         }
 //       }
 //       this.$router.push(route)
-//     }, 700),
+//     // }, 700),
+//    },
 //     '$route.query.search': {
 //       immediate: true,
 //       handler (value) {

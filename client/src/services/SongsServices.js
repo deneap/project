@@ -1,8 +1,12 @@
 import Api from '@/services/Api'
 
 export default {
-  listSongs () {
-    return Api().get('songs')
+  listSongs (search) {
+    return Api().get('songs', {
+      params: {
+        search: search
+      }
+    })
   },
   show (songId) {
     return Api().get(`songs/${songId}`)
