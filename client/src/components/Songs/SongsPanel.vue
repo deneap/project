@@ -1,27 +1,37 @@
 <template>
-
-    <!-- <v-flex xs6> -->
-<!-- <v-form fluid style="margin: 1px; padding: 1px; align: middle; width: 100% "> -->
-   <panel title="Songs">
-    <router-link slot="action" :to ="{name: 'songs-create'}">
-     <v-btn fab absolute right small class="cyan accent-3"> <v-icon>add</v-icon></v-btn>
+  <!-- <v-flex xs6> -->
+  <!-- <v-form fluid style="margin: 1px; padding: 1px; align: middle; width: 100% "> -->
+  <panel title="Songs">
+    <router-link
+      slot="action"
+      :to="{name: 'songs-create'}"
+    >
+      <v-btn
+        fab
+        absolute
+        right
+        small
+        class="cyan accent-3"
+      >
+        <v-icon>add</v-icon>
+      </v-btn>
     </router-link>
 
     <div
       v-for="song in songs"
+      :key="song.id"
       class="song"
-      :key="song.id">
-
+    >
       <v-layout>
         <v-flex xs6>
           <div class="song-title">
-            {{song.title}}
+            {{ song.title }}
           </div>
           <div class="song-artist">
-            {{song.artist}}
+            {{ song.artist }}
           </div>
           <div class="song-genre">
-            {{song.genre}}
+            {{ song.genre }}
           </div>
 
           <v-btn
@@ -32,21 +42,23 @@
               params: {
                 songId: song.id
               }
-            }">
+            }"
+          >
             View
           </v-btn>
         </v-flex>
 
         <v-flex xs6>
-          <img class="album-image" :src="song.albumImageUrl" />
+          <img
+            class="album-image"
+            :src="song.albumImageUrl"
+          >
         </v-flex>
       </v-layout>
     </div>
-     
-     </panel>
+  </panel>
   <!-- </v-form> -->
-    <!-- </v-flex> -->
-
+  <!-- </v-flex> -->
 </template>
 
 <script>

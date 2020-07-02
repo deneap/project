@@ -1,19 +1,15 @@
 <template>
-
-          <v-col>
-          <panel title="Search">
-            <!-- <div slot="hello"> -->
-    <v-text-field
-      label="Search by song title, artist, album, or genre"
-      v-model="search"
-    ></v-text-field>
-            <!-- </div> -->
+  <v-col>
+    <panel title="Search">
+      <!-- <div slot="hello"> -->
+      <v-text-field
+        v-model="search"
+        label="Search by song title, artist, album, or genre"
+      />
+      <!-- </div> -->
     </panel>
-    </v-col>
-
-
+  </v-col>
 </template>
-
 
 <script>
 export default {
@@ -24,16 +20,15 @@ export default {
   },
   watch: {
     search (value) {
-            const route = {
+      const route = {
         name: 'songs'
       }
-      if (this.search !== '') {
+      if (value !== '') {
         route.query = {
-          search: this.search
+          search: value
         }
       }
       this.$router.push(route)
-      console.log(value)
     },
     '$route.query.search': {
             immediate: true,
