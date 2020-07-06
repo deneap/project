@@ -2,9 +2,9 @@
  <v-app-bar
       app class="cyan" dark>
         <v-toolbar-title class="mr-4">
-         <span class="home" @click="navigateTo({name: 'root'})">
-        Clockify
-         </span>
+         <router-link class="home" tag="span" :to="{name: 'songs'}"> 
+           Clockify
+         </router-link>
     </v-toolbar-title>
         
       <v-btn
@@ -45,14 +45,11 @@
 <script>
 export default {
     methods: {
-        navigateTo (router) {
-            this.$router.push(router)
-        },
-            logout () {
+      logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push({
-        name: 'root'
+        name: 'songs'
       })
     }
     }
