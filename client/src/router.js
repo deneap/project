@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from './views/Home.vue'
 import Register from '@/components/Register.vue'
 import Login from '@/components/Login.vue'
 import Songs from '@/components/Songs/Index.vue'
@@ -10,11 +9,6 @@ import EditSong from '@/components/EditSong.vue'
 Vue.use(VueRouter)
 
   const routes = [
-  {
-    path: '/',
-    name: 'root',
-    component: Home
-  },
   {
     path: '/register',
     name: 'register',
@@ -44,6 +38,10 @@ Vue.use(VueRouter)
     path: '/songs/:songId/edit',
     name: 'song-edit',
     component: EditSong
+  },
+  {
+  path: '*',
+  redirect: 'songs'
   }
 ]
 

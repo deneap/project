@@ -1,17 +1,16 @@
 <template>
   <v-col>
     <panel title="Search">
-      <!-- <div slot="hello"> -->
-      <v-text-field
+       <v-text-field
         v-model="search"
         label="Search by song title, artist, album, or genre"
       />
-      <!-- </div> -->
     </panel>
   </v-col>
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
     data () {
     return {
@@ -19,7 +18,7 @@ export default {
     }
   },
   watch: {
-    search (value) {
+    search: _.debounce(async function (value) {
       const route = {
         name: 'songs'
       }
@@ -29,7 +28,7 @@ export default {
         }
       }
       this.$router.push(route)
-    },
+    }, 700),
     '$route.query.search': {
             immediate: true,
       handler (value) {
@@ -39,25 +38,7 @@ export default {
   }
 }
 
-// import _ from 'lodash'
 
-// export default {
-//   data () {
-//     return {
-//       search: ''
-//     }
-//   },
-//   watch: {
-//     search: _.debounce(async function (value) {
-
-
-      
-//     }, 700),
-    
-
-//     }
-//   }
-// }
 </script>
 
 <style>
