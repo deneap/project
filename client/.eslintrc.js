@@ -17,6 +17,18 @@ module.exports = {
       "plugin:vue/recommended"
     ],
     rules: {
+      'indent': [
+        'error',
+        2
+      ],
+      'quotes': [
+        'error',
+        'single'
+      ],
+      'semi': [
+        'error',
+        'never'
+      ]
       // we should always disable console logs and debugging in production
     }
   };
