@@ -1,11 +1,9 @@
 <template>
   <v-layout column>
-
-      <SongsSearchPanel />
+    <SongsSearchPanel />
     <v-flex xs6>
-    <songs-panel class="mt-2" />
+      <songs-panel class="mt-2" />
     </v-flex>
-    
   </v-layout>
 </template>
 
@@ -24,7 +22,7 @@ export default {
     }
   },
   async created () {
-    this.songs = (await SongsServices.listSongs()).data;
+    this.songs = (await SongsServices.index()).data
   }
 }
 </script>
