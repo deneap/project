@@ -1,64 +1,64 @@
 <template>
-  <!-- <v-flex xs6> -->
-  <!-- <v-form fluid style="margin: 1px; padding: 1px; align: middle; width: 100% "> -->
-  <panel title="Songs">
-    <router-link
-      slot="action"
-      :to="{name: 'songs-create'}"
-    >
-      <v-btn
-        fab
-        absolute
-        right
-        small
-        class="cyan accent-3"
+  <v-flex xs12>
+    <!-- <v-flex xs6> -->
+    <!-- <v-form fluid style="margin: 1px; padding: 1px; align: middle; width: 100% "> -->
+    <panel title="Songs">
+      <router-link
+        slot="action"
+        :to="{name: 'songs-create'}"
       >
-        <v-icon>add</v-icon>
-      </v-btn>
-    </router-link>
+        <v-btn
+          fab
+          absolute
+          right
+          small
+          class="cyan accent-3"
+        >
+          <v-icon>add</v-icon>
+        </v-btn>
+      </router-link>
 
-    <div
-      v-for="song in songs"
-      :key="song.id"
-      class="song"
-    >
-      <v-layout>
-        <v-flex xs6>
-          <div class="song-title">
-            {{ song.title }}
-          </div>
-          <div class="song-artist">
-            {{ song.artist }}
-          </div>
-          <div class="song-genre">
-            {{ song.genre }}
-          </div>
+      <div
+        v-for="song in songs"
+        :key="song.id"
+        class="song"
+      >
+        <v-layout>
+          <v-flex xs6>
+            <div class="song-title">
+              {{ song.title }}
+            </div>
+            <div class="song-artist">
+              {{ song.artist }}
+            </div>
+            <div class="song-genre">
+              {{ song.genre }}
+            </div>
 
-          <v-btn
-            dark
-            class="cyan"
-            :to="{
-              name: 'song',
-              params: {
-                songId: song.id
-              }
-            }"
-          >
-            View
-          </v-btn>
-        </v-flex>
+            <v-btn
+              dark
+              class="cyan"
+              :to="{
+                name: 'song',
+                params: {
+                  songId: song.id
+                }
+              }"
+            >
+              View
+            </v-btn>
+          </v-flex>
 
-        <v-flex xs6>
-          <img
-            class="album-image"
-            :src="song.albumImageUrl"
-          >
-        </v-flex>
-      </v-layout>
-    </div>
-  </panel>
-  <!-- </v-form> -->
-  <!-- </v-flex> -->
+          <v-flex xs6>
+            <img
+              class="album-image"
+              :src="song.albumImageUrl"
+            >
+          </v-flex>
+        </v-layout>
+      </div>
+    </panel>
+  </v-flex>
 </template>
 
 <script>

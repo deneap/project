@@ -1,18 +1,20 @@
 <template>
-  <v-col>
-    <panel title="Search">
-       <v-text-field
-        v-model="search"
-        label="Search by song title, artist, album, or genre"
-      />
-    </panel>
-  </v-col>
+  <v-flex>
+    <!-- <v-col> -->
+      <panel title="Search">
+        <v-text-field
+          v-model="search"
+          label="Search by song title, artist, album, or genre"
+        />
+      </panel>
+    <!-- </v-col> -->
+  </v-flex>
 </template>
 
 <script>
 import _ from 'lodash'
 export default {
-    data () {
+  data () {
     return {
       search: ''
     }
@@ -30,7 +32,7 @@ export default {
       this.$router.push(route)
     }, 700),
     '$route.query.search': {
-            immediate: true,
+      immediate: true,
       handler (value) {
         this.search = value
       }
